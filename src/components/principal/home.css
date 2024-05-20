@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.parteSuperior {
+  width: auto;
+  height: 700px;
+  margin: 0 auto;
+  background-image: url("../../assets/fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid #ff0000;
+}
+
+.peliculas {
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+  border-bottom: 3px solid #ff0000;
+
+}
+
+.image {
+  width: auto;
+  height: 100%;
+}
+
+.peliculas {
+  width: auto;
+  height: 500px;
+  padding-top: 140px;
+  padding-bottom: 139px;
+  padding-left: 291px;
+  padding-right: 290px;
+  gap: 0.72px;
+}
+
+.container-peliculas {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5px;
+}
+
+.image-group {
+  display: flex;
+  height: 300px;
+}
+
+.image-container {
+  width: auto;
+  height: auto;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;   
+}
+
+.textoCentral {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.textoCentral h1,
+.textoCentral h3 {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  margin-top: 50px;
+  font-size: 50px;
+}
+
+/* Media queries para ajustar los estilos en dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+  .textoCentral {
+    top: 30%;
+  }
+  
+  .textoCentral h1,
+  .textoCentral h3 {
+    font-size: 30px;
+  }
+  
+  .parteSuperior {
+    height: 50vh;
+  }
+  
+  .peliculas {
+    padding: 50px;
+  }
+  
+  .image-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .textoCentral {
+    top: 25%;
+  }
+  
+  .textoCentral h1,
+  .textoCentral h3 {
+    font-size: 20px;
+  }
+  
+  .parteSuperior {
+    height: 30vh;
+  }
+  
+  .peliculas {
+    padding: 20px;
+  }
+}
+
+
+.image-container {
+  position: relative; /* Establece la posición relativa para los botones */
+}
+
+.buy-ticket-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0; /* Oculta el botón inicialmente */
+  transition: opacity 0.3s ease; /* Agrega una transición suave para la aparición */
+}
+
+.image-container:hover .buy-ticket-button {
+  opacity: 1; /* Muestra el botón al pasar el cursor sobre la imagen */
+}
+
+/* Aplica un filtro de desenfoque a las imágenes solo cuando el mouse está fuera */
+.image-container:not(:hover) img {
+  width: 100%;
+  height: 100%;
+  /* No aplicar el desenfoque aquí */
+}
+
+.image-container:hover img {
+  filter: blur(3px); /* Aplicar el desenfoque solo al pasar el mouse */
+}
+
+.peliculas h2 {
+  color: white;
+  font-size: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+}
