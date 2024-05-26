@@ -9,7 +9,9 @@ import Pago from './components/pago/Pago';
 import RegistroTarjeta from './components/registrotarjeta/Registrotarjeta';
 import RegistroUsuarios from './components/registrousuarios/Registrousuarios';
 import Snacks from './components/snacks/Snacks';
-
+import Peliculas from './components/peliculas/Peliculas';
+import Sedes from './components/sedes/Sedes';
+import Nosotros from './components/nosotros/Nosotros';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<RegistroUsuarios />} />
         <Route path="/registrotarjeta" element={<RegistroTarjeta />} />
+        <Route path="/peliculas" element={<Peliculas />} />
+        <Route path="/sedes" element={<Sedes />} />
+        <Route path="/nosotros" element={<Nosotros />} />
       </Routes>
     </Router>
   );

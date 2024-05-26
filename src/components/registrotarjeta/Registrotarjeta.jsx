@@ -1,6 +1,7 @@
 import React from "react";
 import "./registrotarjeta.css";
 import Navbarusers from "../../common/navbarUsers/Navbarusers";
+import { Link } from "react-router-dom";
 
 export default function Registrotarjeta() {
   return (
@@ -47,7 +48,9 @@ export default function Registrotarjeta() {
                 </div>
               </div>
             </div>
-            <button className="btnContinuar"> Continuar</button>
+            <Link to="/registro">
+  <button className="siguiente"> Continuar</button>
+</Link>
           </form>
         </div>
       </div>

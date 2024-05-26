@@ -1,11 +1,21 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 import "./horarios.css";
 import NavbarGeneral from "../../common/navbar/navBarGeneral/NavbarGeneral";
 import evangelion from "../../assets/evangelion.png";
 import Footer from "../../common/Footer/Footer";
+import { useLocation } from "react-router-dom";
 
 export default function Horarios() {
+  const location = useLocation();
+  const movie = location.state
+    ? location.state.movie
+    : JSON.parse(localStorage.getItem("selectedMovie")) || {
+        nombre: "",
+        descripcion: "",
+        image: evangelion,
+      };
 
   const horariosCineplex1 = [
     "10:00 AM ",
@@ -28,18 +38,13 @@ export default function Horarios() {
       <div className="principal">
         <div className="cuadroPrincipal">
           <div className="cuadroIzquierdo">
-            <img src={evangelion} alt="" />
+            <img src={movie.image} alt={movie.nombre} />
           </div>
           <div className="cuadroDerecho">
             <div className="cuadroDerechoInfo">
               <div className="texto">
-                <h1>Evangelion 3.0 + 1.0</h1>
-                <p>
-                  Shinji Ikari sigue a la deriva después de perder sus ganas de
-                  vivir, pero el lugar al que llega le enseña lo que significa
-                  la esperanza. Finalmente, el Proyecto Instrumentalidad se pone
-                  en marcha y Wille hace un último y agotador esfuerzo.
-                </p>
+                <h1>{movie.nombre}</h1>
+                <p>{movie.descripcion}</p>
               </div>
             </div>
           </div>
@@ -52,7 +57,9 @@ export default function Horarios() {
               <h3>MEGAPLAZA</h3>
               <ul>
                 {horariosCineplex1.map((horario, index) => (
-                  <button key={index}>{horario}</button>
+                  <Link key={index} to="/asientos">
+                    <button>{horario}</button>
+                  </Link>
                 ))}
               </ul>
             </div>
@@ -60,10 +67,13 @@ export default function Horarios() {
               <h3>PLAZA DEL SOL</h3>
               <ul>
                 {horariosCineplex2.map((horario, index) => (
-                  <button key={index}>{horario}</button>
+                  <Link key={index} to="/asientos">
+                    <button>{horario}</button>
+                  </Link>
                 ))}
               </ul>
             </div>
+            
           </div>
         </div>
       </div>

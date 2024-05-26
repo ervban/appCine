@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import NavbarGeneral from "../../common/navbar/navBarGeneral/NavbarGeneral";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./home.css";
+import { Link } from "react-router-dom";
 import dune from "../../assets/dune.jpg";
 import evangelion from "../../assets/evangelion.png";
 import hobbitjpg from "../../assets/hobbitjpg.jpg";
 import lobo from "../../assets/lobo.jpg";
 import narnia from "../../assets/narnia.jpg";
+import "./peliculas.css";
+import NavbarGeneral from "../../common/navbar/navBarGeneral/NavbarGeneral";
 import Footer from "../../common/Footer/Footer";
-import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Peliculas() {
   const [hoveredImage, setHoveredImage] = useState(null);
   const [movies, setMovies] = useState([]);
 
@@ -26,18 +26,11 @@ export default function Home() {
       setMovies(updatedMovies);
     });
   }, []);
-
   return (
-    <div className="container">
-      <div className="parteSuperior">
-        <NavbarGeneral />
-        <div className="textoCentral">
-          <h1>MEJOR CALIDAD DE IMAGEN CINERAMA</h1>
-          <h3>Disfruta de la magia del cine</h3>
-        </div>
-      </div>
+    <div>
+      <NavbarGeneral />
       <div className="peliculas">
-        <h2>Peliculas</h2>
+        <h2>Peliculas En Cartelera</h2>
         <div className="container-peliculas">
           <div className="image-group">
             {movies.map((movie) => (
@@ -66,18 +59,13 @@ export default function Home() {
                     </button>
                   </Link>
                 )}
-                <div>
-                  <h3>{movie.nombre}</h3>
-                  <p>{movie.descripcion}</p>
-                </div>
+                
               </div>
             ))}
           </div>
         </div>
       </div>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 }
